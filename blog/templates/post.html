@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mainContent">
+			<div class="content">
+			
+<h2><a href="/{{post.id}}">{{ post.title }}</a> </h2>
+
+<div class="post_meta">
+  {{ post.created}}
+</div>	
+
+<div class="post_body">
+  {{ post.body|safe|linebreaks}}
+</div>	
+
+	</div>
+</div>
+
+{% endblock %}
