@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- content -->
+<div class="contact-top">
+<div class="container">
+		<h2>Contact</h2>		
+			<div class="contact">
+			<p>We are fortunate to have a core team whose collective mind is a happy mix of creativity and reason. To us, writing a brilliant piece of code is just as thrilling as writing an award-winning TV spot. And that makes all the difference in the work we do and the applications we create.</p>
+		
+					<div class="contact-down">
+							<div class="contact-right">
+								<div class="col-md-6 contact-left">
+									<h5>CONTACT-INFO</h5>
+										<p>Our consumer-centric approach to everything we do is as much a part of our DNA as technology. Noting is more important to us than staying relevant and engaging to our target audience. </p>
+									 			<address>
+													<strong>Applied Informatics Inc.<br>
+													447 Broadway, New York, NY 10013<br>
+													United States +1 212-537-6944</strong><br>
+													Telephone: +1 800 603 6035<br>
+													
+												</address>
+								</div>
+								<div class="col-md-6 contact-info">
+											<form  action="/sendMail/" method="post" name="contactForm">
+												{% csrf_token %}
+												<input type="text" name="name" value="NAME" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'NAME';}">				
+												<input type="text" name="email" value="EMAIL" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'EMAIL';}">
+												<textarea cols="70" rows="5" name="message" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'MESSAGE';}" >MESSAGE </textarea>
+												<div class="clearfix"> </div>
+												<input type="submit"value="SEND" />
+												
+											</form>					
+								</div>
+								<div class="clearfix"> </div>
+								</div>
+			</div>
+</div>	
+	</div>
+</div>
+
+{% endblock %}

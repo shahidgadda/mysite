@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     url(r'^', include('blog.urls')),
 	url(r'^latestnews/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/$', include('haystack.urls')),
+    url(r'^search/', include('haystack.urls')),
     )

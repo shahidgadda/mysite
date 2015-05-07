@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="details">
+		<div class="col-md-12">
+				<div class="det_pic col-md-4">
+					  <img src="{{ post.imag.url }}" class="img-responsive" alt="">
+				</div>
+				<div class="det_text col-md-8">
+					<h3>{{ post.title }}</h3></br>
+					<p>{{ post.created}}</p></br>
+					<p>{{ post.body|safe|linebreaks}}</p></br>
+
+				</div>
+		</div>	
+		<div class="container ">
+			
+		
+			  
+		</div>
+	</div>
+	
+{% endblock %}

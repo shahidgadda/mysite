@@ -3,19 +3,18 @@
 {% block content %}
 <div class="about">
     <div class="container ">
-        <h2>Archived Blogs:</h2>        
+        <h2>Contact Status:</h2>        
         <div class="biography ">
 
-                {% for post in object_list %}
+               
                 <div class="biographys col-md-12">    
                         <div class="biography-into">
-                            <a href="/{{ post.id }}" class="link"><h4>{{ post.title|slice:":20" }}</h4></a>
-                            <p class="adm">Posted by <a href="#">Admin</a>  |  {{ post.created}}</p>
-							<a href="#"><img src="/{{ post.imag.url }}" class="img-responsive" alt=""></a>
+                            <a href="#" class="link"><h4>Thanks We will contact you soon...!!</h4></a>     
+							
                         </div> 
                     <div class="clearfix"> </div>  
                 </div> 
-                {% endfor %}
+               
             
                 
         </div>

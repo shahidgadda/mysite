@@ -1,41 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE HTML>
+<html>
 <head>
-	<title>Islamic Education Blog</title>
-	<meta charset="utf-8" />
-	
-	<link rel="stylesheet" href="/static/css/style.css" type="text/css" />
-	<meta name="viewport" content= "width-device-width, initial-scale=1.0">
+<title>Educational Blog</title>
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        size_li = $("#myList li").size();
+        x=3;
+        $('#myList li:lt('+x+')').show();
+        $('#loadMore').click(function () {
+            x= (x+1 <= size_li) ? x+1 : size_li;
+            $('#myList li:lt('+x+')').show();
+        });
+        $('#showLess').click(function () {
+            x=(x-1<0) ? 1 : x-1;
+            $('#myList li').not(':lt('+x+')').hide();
+        });
+    });
+  </script>
+
 </head>
+<body>
+<!-- header -->
+<div class="banner">
+  <div class="container">
+    <div class="header col-md-12">
+      <div class="background col-md-6">
+        <a href="#"><img src="/static/img/blog1.png" class="img-responsive " alt="" /></a>
+      </div>
+      <div class="header-right col-md-4">
+        <ul>
+          <li><a href="#"><i class="fb"> </i></a></li>
+          <li><a href="#"><i class="twt"> </i></a></li>
+        <li>
+        <div class="search2">
+          <form method="get" action="/search" class="autocomplete-me" autocomplete="off">
+            <input type="text" value="Search.." id="id_q" name="q" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
+            <input type="submit" value="">
+          </form>
+        </div></li>
+          <div class="clearfix"></div>
+        </ul>
+          
+      </div>
+        <div class="clearfix"> </div>
+    </div>
+        <div class="head-nav">
+          <span class="menu"> </span>
+            <ul class="cl-effect-15">
+            <li class="active"><a href='/'>HOME</a></li>
+              <li><a href='/photos/' data-hover="PHOTOS">PHOTOS</a></li>
+              <li><a href="/archives/" data-hover="ARCHIVES">ARCHIVES</a></li>
+              <li><a href="/contact/" data-hover="CONTACT">CONTACT</a></li>
+                <div class="clearfix"> </div>
+            </ul>
+        </div>
 
-<body class="body">
-      <header class="mainHead">
-	    <img src="/static/img/logo1.png" width="700" height="144">
-		<nav><ul>
-
-			  <li><a href='/'>Blog</a></li>
-			  <li><a href='/latestnews/'>News</a></li>
-			  <li><a href='/archives/'>Archive</a></li>
-		</ul></nav>	  
-	  </header>
-	  
-	  <aside class="sideinfo">
-	     <article>
-			<h3>Recent News </h3>
-			{% for post in object_list %}
-			<p class="postInfo">{{post.created}}</br><a href="/{{post.id}}">{{post.title}}</a></p>
-			{% endfor %}
-		</article>
-	   </aside>
+            <!-- script-for-nav -->
+          <script>
+            $( "span.menu" ).click(function() {
+              $( ".head-nav ul" ).slideToggle(300, function() {
+              // Animation complete.
+              });
+            });
+          </script>
+        <!-- script-for-nav -->            
+  </div> 
+</div>
+<!-- header -->
 	   
 	   {% block content %}
 	   
 	   {% endblock %}
 	   
-	   <footer class="mainFooter">
-			<p>Copyright &copy; 2015</p>
-	   </footer>
+	  <div class="footer">
+    <div class="container">
+      <div class="col-md-3 copy">
+        <div class="top1">
+          <i class="ham"></i>
+        </div>
+        <div class="top2">
+          <h6>Copyrights © 2015 Graphic</h6>
+          <p>All rights reserved</p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="col-md-3 copy">
+        <div class="top1">
+          <i class="men"></i>
+        </div>
+        <div class="top2">
+          <h6>Developed by: </h6>
+          <p><a href="#">Applied</a></p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="col-md-3 copy">
+        <div class="top1">
+          <i class="app"></i>
+        </div>
+        <div class="top2">
+          <h6>Images From: </h6>
+          <p><a href="#"> www.kalamullah.com</a></p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="col-md-3 copy">
+        <div class="top1">
+          <i class="lik"></i>
+        </div>
+        <div class="top2">
+          <h6>Website </h6>
+          <p><a href="#"> www.Myblog.com</a></p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+<!-- footer -->
+
+   <script src="/static/js/jquery.js"></script>
+   <script type="text/javascript">
+    
+    var Autocomplete = function(options) {
+      this.form_selector = options.form_selector
+      this.url = '/autocomplete/'
+      this.delay = parseInt(options.delay || 300)
+      this.minimum_length = parseInt(options.minimum_length || 3)
+      this.form_elem = null
+      this.query_box = null
+    }
+
+    Autocomplete.prototype.setup = function() {
+      var self = this
+
+      this.form_elem = $(this.form_selector)
+      this.query_box = this.form_elem.find('input[name=q]')
+
+      // Watch the input box.
+      this.query_box.on('keyup', function() {
+        var query = self.query_box.val()
+
+        if(query.length < self.minimum_length) {
+          return false
+        }
+
+        self.fetch(query)
+      })
+
+      // On selecting a result, populate the search field.
+      this.form_elem.on('click', '.ac-result', function(ev) {
+        self.query_box.val($(this).text())
+        $('.ac-results').remove()
+        return false
+      })
+    }
+
+    Autocomplete.prototype.fetch = function(query) {
+      var self = this
+
+      $.ajax({
+        url: this.url
+      , data: {
+          'q': query
+        }
+      , success: function(data) {
+          self.show_results(data)
+        }
+      })
+    }
+
+    Autocomplete.prototype.show_results = function(data) {
+      // Remove any existing results.
+      $('.ac-results').remove()
+
+      var results = data.results || []
+      var results_wrapper = $('<div class="ac-results"></div>')
+      var base_elem = $('<div class="result-wrapper"><a href="#" class="ac-result"></a></div>')
+
+      if(results.length > 0) {
+        for(var res_offset in results) {
+          var elem = base_elem.clone()
+          // Don't use .html(...) here, as you open yourself to XSS.
+          // Really, you should use some form of templating.
+          elem.find('.ac-result').text(results[res_offset])
+          results_wrapper.append(elem)
+        }
+      }
+      else {
+        var elem = base_elem.clone()
+        elem.text("No results found.")
+        results_wrapper.append(elem)
+      }
+
+      this.query_box.after(results_wrapper)
+    }
+
+    $(document).ready(function() {
+      window.autocomplete = new Autocomplete({
+        form_selector: '.autocomplete-me'
+      })
+      window.autocomplete.setup()
+    })
+  </script>
 	   
 </body>
 

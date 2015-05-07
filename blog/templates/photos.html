@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="photos">
+	<div class="container">
+		<h2>Photos</h2>	
+	     <!-- portfolio-section -->
+		 <div class="portfolio"  id="portfolio">
+					<div id="portfoliolist">
+						{% for post in object_list %}
+						<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="/{{ post.id }}"><img src="/{{ post.imag.url }}" class="img-responsive" alt=""></a>
+							</div>
+						</div>			
+						{% endfor %}				
+					</div>
+					<div class="clearfix"></div>
+		</div>
+		
+						
+	   
+	</div>
+</div>
+{% endblock %}

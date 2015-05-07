@@ -5,7 +5,8 @@ class Post(models.Model):
 	title = models.CharField(max_length=100)
 	body = models.TextField()
 	created = models.DateTimeField()
+	imag = models.ImageField(upload_to='static/img', blank=True,default='')
 	#tags = TaggableManager()
-
 	def __unicode__(self):
 		return self.title
+
