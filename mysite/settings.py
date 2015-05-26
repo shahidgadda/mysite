@@ -70,8 +70,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mysite.db',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'book_blog',
+        'USER':'root',
+        'PASSWORD':'root',
+        'HOST':'',
+        'PORT':'',
     }
 }
 
@@ -97,10 +101,11 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
+# https://docs.djangoproject.com/en/1.7/howto/static
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/srv/www/mysite/static/'
 
-STATICFILES_DIRS = (
-	"/home/shahid/Desktop/book-blog/mysite/static",
-)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/srv/www/mysite/media/'
+

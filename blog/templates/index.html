@@ -13,11 +13,11 @@
 							<div class="col-md-4 praesent">
 								<div class="l_g_r">
 									<div class="dapibus">
-										<h2>{{ post.title|slice:":20" }}</h2>
+										<h2>{{ post.title|slice:":20" }} </h2>
 										<p class="adm">Posted by <a href="#">Admin</a>  |  {{ post.created}}</p>
-										<a href="#"><img src="{{ post.imag.url }}" class="img-responsive" alt=""></a>
+										<a href="/book_detail/{{post.id}}"><img src="/{{post.imag}}" class="img-responsive" alt=""></a>
 										<p>{{ post.body|slice:":50"}} </p>
-										<a href="/{{post.id}}" class="link">Read More</a>
+										<a href="/book_detail/{{post.id}}" class="link">Read Morei</a>
 									</div>
 									
 								</div>
@@ -29,7 +29,7 @@
 									<div class="posts">
 										<h4>Recent posts</h4>
 										{% for post in object_list %}
-										<h6><a href="/{{post.id}}">{{ post.title|slice:":20" }}</a></h6>
+										<h6><a href="/book_detail/{{post.id}}">{{ post.title|slice:":20" }}</a></h6>
 										{% endfor %}
 									</div>
 									

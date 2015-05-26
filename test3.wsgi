@@ -5,7 +5,7 @@ import datetime
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 site.addsitedir('/srv/www/blog_env/lib/python2.7/site-packages')
-sys.path.append('/srv/www/islamic-blog/mysite')
+sys.path.append('/srv/www/mysite')
 
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()

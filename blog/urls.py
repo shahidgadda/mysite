@@ -5,7 +5,7 @@ from blog.models import Post
 urlpatterns = patterns('',
     url(r'^$', ListView.as_view(queryset=Post.objects.all().order_by("-created")[:20],
     							template_name="index.html")),
-    url(r'^(?P<pk>\d+)$', DetailView.as_view(model=Post,
+    url(r'^book_detail/(?P<pk>\d+)$', DetailView.as_view(model=Post,
     							template_name="details.html")),
 	url(r'^archives/$', ListView.as_view(queryset=Post.objects.all().order_by("-created"),
     							template_name="archives.html")),
