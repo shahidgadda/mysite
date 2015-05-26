@@ -5,6 +5,7 @@ class Post(models.Model):
 	body = models.TextField()
 	created = models.DateTimeField()
 	imag = models.ImageField(upload_to='pics', blank=True,default='')
+	
 	def __unicode__(self):
 		return self.title
 

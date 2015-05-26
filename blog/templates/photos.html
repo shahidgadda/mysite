@@ -4,22 +4,20 @@
 <div class="photos">
 	<div class="container">
 		<h2>Photos</h2>	
-	     <!-- portfolio-section -->
-		 <div class="portfolio"  id="portfolio">
-					<div id="portfoliolist">
-						{% for post in object_list %}
-						<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
-							<div class="portfolio-wrapper">		
-								<a href="/book_detail/{{ post.id }}"><img src="/{{ post.imag }}" class="img-responsive" alt=""></a>
-							</div>
-						</div>			
-						{% endfor %}				
+	     <!-- Details-section -->
+		<div class="portfolio"  id="portfolio">
+		    <div id="portfoliolist">
+				{% for post in object_list %}
+					<div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
+					<div class="portfolio-wrapper">		
+						<a href="/book_detail/{{ post.id }}"><img src="/{{ post.imag }}" class="img-responsive" alt=""></a>
 					</div>
-					<div class="clearfix"></div>
+				    </div>			
+				{% endfor %}				
+			</div>
+			<div class="clearfix"></div>
 		</div>
-		
-						
-	   
+   
 	</div>
 </div>
 {% endblock %}

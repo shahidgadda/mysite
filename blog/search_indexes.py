@@ -3,7 +3,7 @@ from haystack import indexes
 from blog.models import Post
 from haystack.query import SearchQuerySet
 
-
+''' Index for search '''
 class PostIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     title = indexes.CharField(model_attr='title')

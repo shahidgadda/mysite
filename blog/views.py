@@ -4,7 +4,7 @@ from haystack.query import SearchQuerySet
 from django.core.mail import send_mail
 from .forms import contactForm
 
-
+''' Autocompletes the search based on Query '''
 def autocomplete(request):
     sqs = SearchQuerySet().autocomplete(content_auto=request.GET.get('q', ''))[:5]
     suggestions = [result.title for result in sqs]
@@ -15,18 +15,18 @@ def autocomplete(request):
     })
     return HttpResponse(the_data, content_type='application/json')
 
+''' Sends mail to owner ''' 
 def sendMail(request):
-   if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
+    if request.method == 'POST':
         form = contactForm(request.POST)
-   if form.is_valid():
-    name = form.cleaned_data['name']
-    message = form.cleaned_data['message']
-    sender = form.cleaned_data['email']
-    recipients = ['ayoub@trialx.com']
-    send_mail(name, message, sender, recipients)
-    return HttpResponseRedirect('/thanks/')
-   else:
-   	return HttpResponseRedirect('/invalid/')
+    if form.is_valid():
+        name = form.cleaned_data['name']
+        message = form.cleaned_data['message']
+        sender = form.cleaned_data['email']
+        recipients = ['ayoub@trialx.com']
+        send_mail(name, message, sender, recipients)
+        return HttpResponseRedirect('/thanks/')
+    else:
+   	    return HttpResponseRedirect('/invalid/')
 
 
