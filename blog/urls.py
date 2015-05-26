@@ -16,5 +16,4 @@ urlpatterns = patterns('',
     url(r'^invalid/', TemplateView.as_view(template_name="invalid.html")),
 	url(r'^autocomplete/', 'blog.views.autocomplete'),
     url(r'^sendMail/', 'blog.views.sendMail'),
-    #url(r'^addComment/', 'blog.views.addComment'),
 )
