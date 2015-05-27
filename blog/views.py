@@ -26,6 +26,8 @@ def sendMail(request):
             recipients = ['ayoub@trialx.com']
             send_mail(name, message, sender, recipients)
             return HttpResponseRedirect('/thanks/')
+        else:
+            return HttpResponseRedirect('/invalid/')
     else:
    	    return HttpResponseRedirect('/invalid/')
 
