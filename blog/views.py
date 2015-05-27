@@ -19,13 +19,13 @@ def autocomplete(request):
 def sendMail(request):
     if request.method == 'POST':
         form = contactForm(request.POST)
-    if form.is_valid():
-        name = form.cleaned_data['name']
-        message = form.cleaned_data['message']
-        sender = form.cleaned_data['email']
-        recipients = ['ayoub@trialx.com']
-        send_mail(name, message, sender, recipients)
-        return HttpResponseRedirect('/thanks/')
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['email']
+            recipients = ['ayoub@trialx.com']
+            send_mail(name, message, sender, recipients)
+            return HttpResponseRedirect('/thanks/')
     else:
    	    return HttpResponseRedirect('/invalid/')
 
